@@ -31,7 +31,14 @@ AND curso = 3
 AND id_grado = 7;
 
 -- 6. Retorna un llistat dels professors/es juntament amb el nom del departament al qual estan vinculats. El llistat ha de retornar quatre columnes, primer cognom, segon cognom, nom i nom del departament. El resultat estarà ordenat alfabèticament de menor a major pels cognoms i el nom. (apellido1, apellido2, nombre, departamento)
-
+SELECT pe.apellido1, pe.apellido2, pe.nombre, d.nombre AS departamento
+FROM persona pe
+JOIN profesor pr
+ON pe.id = pr.id_profesor
+JOIN departamento d
+ON d.id = pr.id_departamento
+WHERE pe.tipo = 'profesor'
+ORDER BY pe.apellido1 ASC, pe.apellido2 ASC, pe.nombre ASC;
 
 -- 7. Retorna un llistat amb el nom de les assignatures, any d'inici i any de fi del curs escolar de l'alumne/a amb NIF 26902806M. (nombre, anyo_inicio, anyo_fin)
 
