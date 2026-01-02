@@ -2,15 +2,29 @@
 
 
 ## 📈 Resumen
-✅ 1 correctas de 2 queries
+✅ 3 correctas de 4 queries
 
 ## ✅ Query 1: Correcto
 
-⏱ Tiempo: 0.39 ms
+⏱ Tiempo: 0.35 ms
 🔍 No se usó ningún índice en esta consulta.
 
 ---
 
-## ❌ Query 2: Error
+## ✅ Query 2: Correcto
+
+⏱ Tiempo: 0.30 ms
+🔍 No se usó ningún índice en esta consulta.
+
+---
+
+## ✅ Query 3: Correcto
+
+⏱ Tiempo: 0.31 ms
+🔍 No se usó ningún índice en esta consulta.
+
+---
+
+## ❌ Query 4: Error
 - **Descripción**: 'NoneType' object is not iterable
 
