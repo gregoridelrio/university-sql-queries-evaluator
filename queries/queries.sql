@@ -41,7 +41,15 @@ WHERE pe.tipo = 'profesor'
 ORDER BY pe.apellido1 ASC, pe.apellido2 ASC, pe.nombre ASC;
 
 -- 7. Retorna un llistat amb el nom de les assignatures, any d'inici i any de fi del curs escolar de l'alumne/a amb NIF 26902806M. (nombre, anyo_inicio, anyo_fin)
-
+SELECT a.nombre, c.anyo_inicio, c.anyo_fin
+FROM asignatura a
+JOIN alumno_se_matricula_asignatura al
+ON a.id = al.id_asignatura
+JOIN curso_escolar c
+ON c.id = al.id_curso_escolar
+JOIN persona p
+ON p.id = al.id_alumno
+WHERE p.nif = '26902806M';
 
 -- 8. Retorna un llistat amb el nom de tots els departaments que tenen professors/es que imparteixen alguna assignatura en el Grau en Enginyeria Informàtica (Pla 2015). (nombre)
 
