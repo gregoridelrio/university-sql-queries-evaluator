@@ -77,7 +77,7 @@ WHERE c.anyo_inicio = 2018;
 -- 10. Retorna un llistat amb els noms de tots els professors/es i els departaments que tenen vinculats. El llistat també ha de mostrar aquells professors/es que no tenen cap departament associat. El llistat ha de retornar quatre columnes, nom del departament, primer cognom, segon cognom i nom del professor/a. El resultat estarà ordenat alfabèticament de menor a major pel nom del departament, cognoms i el nom. (departamento, apellido1, apellido2, nombre)
 SELECT d.nombre AS departamento, pe.apellido1, pe.apellido2, pe.nombre
 FROM persona pe
-LEFT JOIN profesor pr
+JOIN profesor pr
 ON pe.id = pr.id_profesor
 LEFT JOIN departamento d
 ON d.id = pr.id_departamento
