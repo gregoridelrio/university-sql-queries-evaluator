@@ -125,7 +125,7 @@ ON a.id_profesor = p.id_profesor
 WHERE a.id IS NULL;
 
 -- 16. Retorna el nombre total d'alumnes que hi ha. (total)
-SELECT COUNT(*) AS TOTAL
+SELECT COUNT(*) AS total
 FROM persona
 WHERE tipo ='alumno';
 
