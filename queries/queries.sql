@@ -93,7 +93,11 @@ ON d.id = pr.id_departamento
 WHERE d.nombre IS NULL;
 
 -- 12. Retorna un llistat amb els departaments que no tenen professors/es associats. (nombre)
-
+SELECT DISTINCT d.nombre
+FROM departamento d
+LEFT JOIN profesor p
+ON d.id = p.id_departamento
+WHERE p.id_departamento IS NULL;
 
 -- 13. Retorna un llistat amb els professors/es que no imparteixen cap assignatura. (apellido1, apellido2, nombre)
 
