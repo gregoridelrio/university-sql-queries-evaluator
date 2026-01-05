@@ -173,14 +173,21 @@ ON a.id_grado = g.id
 GROUP BY g.nombre, a.tipo;
 
 -- 23. Retorna un llistat que mostri quants alumnes s'han matriculat d'alguna assignatura en cadascun dels cursos escolars. El resultat haurà de mostrar dues columnes, una columna amb l'any d'inici del curs escolar i una altra amb el nombre d'alumnes matriculats. (anyo_inicio, total)
-SELECT c.anyo_inicio, COUNT(id_alumno) AS total
+SELECT c.anyo_inicio, COUNT(DISTINCT id_alumno) AS total
 FROM curso_escolar c
 JOIN alumno_se_matricula_asignatura a
 ON c.id = a.id_curso_escolar
 GROUP BY c.anyo_inicio;
 
 -- 24. Retorna un llistat amb el nombre d'assignatures que imparteix cada professor/a. El llistat ha de tenir en compte aquells professors/es que no imparteixen cap assignatura. El resultat mostrarà cinc columnes: id, nom, primer cognom, segon cognom i nombre d'assignatures. El resultat estarà ordenat de major a menor pel nombre d'assignatures. (id, nombre, apellido1, apellido2, total)
-
+SELECT pe.id, pe.nombre, pe.apellido1, pe.apellido2, COUNT(a.id) AS total
+FROM persona pe
+JOIN profesor pr
+ON pr.id_profesor = pe.id
+LEFT JOIN asignatura a
+ON a.id_profesor = pr.id_profesor
+GROUP BY pe.id
+ORDER BY total DESC;
 
 -- 25. Retorna totes les dades de l'alumne/a més jove. (*)
 
